@@ -58,4 +58,5 @@ export default [
       ],
     },
   },
+  { ignores: ['craco.config.js', 'babel.config.js'] },
 ];
