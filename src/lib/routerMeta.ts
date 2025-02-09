@@ -1,6 +1,7 @@
 export interface IRouterMeta {
   name?: string;
   path: string;
+  feature: string;
   isShow: boolean;
   isCommon?: boolean;
   isAuth?: boolean;
@@ -13,6 +14,7 @@ export type RouterMetaType = {
 
 const routerMeta: RouterMetaType = {
   OrganizationRegistrationPage: {
+    feature: 'organization',
     name: 'Organization Registration',
     path: '/organization/registration',
     isShow: true,
