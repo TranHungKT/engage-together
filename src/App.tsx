@@ -1,13 +1,20 @@
 import React from 'react';
 
 import './App.css';
-import Router from './Router';
+import { ConfigProvider } from 'antd';
 
+import Router from './Router';
 function App() {
   return (
-    <div className="App">
+    <ConfigProvider
+      theme={{
+        token: {
+          fontFamily: 'public-sans-regular',
+        },
+      }}
+    >
       <Router />
-    </div>
+    </ConfigProvider>
   );
 }
 
