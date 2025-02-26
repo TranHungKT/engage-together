@@ -130,3 +130,10 @@ export const confirmPasswordValidation: Rule[] = [
     },
   }),
 ];
+
+export const organizationTypeValidation: Rule[] = [
+  {
+    required: true,
+    message: 'Organization Type is required.',
+  },
+];

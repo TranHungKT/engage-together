@@ -3,6 +3,7 @@ import React from 'react';
 import { Form, FormInstance, Input, Select } from 'antd';
 
 import FormLabel from '../FormLabel/FormLabel';
+import { organizationTypeValidation } from '../helper/validation';
 import { IOrganizationRegistration } from '../interfaces';
 const { Item } = Form;
 const { Option } = Select;
@@ -21,7 +22,7 @@ export default function OrganizationType({ form }: OrganizationTypeProps) {
       <Item
         name="organizationType"
         label={<FormLabel label="Organization type" />}
-        rules={[{ required: true }]}
+        rules={organizationTypeValidation}
       >
         <Select
           placeholder="Select a option and change input text above"
@@ -48,7 +49,7 @@ export default function OrganizationType({ form }: OrganizationTypeProps) {
             <Item
               name="otherOrganizationType"
               label={<FormLabel label="Other Organization type" />}
-              rules={[{ required: true }]}
+              rules={organizationTypeValidation}
             >
               <Input size="large" placeholder="Other" />
             </Item>
