@@ -21,18 +21,23 @@ import {
 } from './helper/validation';
 import { IOrganizationRegistration } from './interfaces';
 import OrganizationType from './OrganizationType/OrganizationType';
-
+import { useCreateOrganizationMutation } from '@/queries/organizations.query';
 const { Item } = Form;
 const { TextArea } = Input;
 
 export default function OrganizationRegistrationPage() {
   const [form] = Form.useForm<IOrganizationRegistration>();
+  const createOrganizationMutation = useCreateOrganizationMutation();
+
+  const handleFinish = (values: IOrganizationRegistration) => {
+    createOrganizationMutation.mutate({ name: values.organizationName });
+  };
 
   return (
     <Row style={{ marginTop: '3rem' }}>
       <Col span={4} />
       <Col span={8}>
-        <Form layout="vertical" form={form}>
+        <Form layout="vertical" form={form} onFinish={handleFinish}>
           <Item
             name="organizationName"
             label={<FormLabel label="Organization name" />}
