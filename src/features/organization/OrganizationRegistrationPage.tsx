@@ -30,7 +30,21 @@ export default function OrganizationRegistrationPage() {
   const createOrganizationMutation = useCreateOrganizationMutation();
 
   const handleFinish = (values: IOrganizationRegistration) => {
-    createOrganizationMutation.mutate({ name: values.organizationName });
+    createOrganizationMutation.mutate({
+      name: values.organizationName,
+      email: values.organizationEmail,
+      password: values.password,
+      confirmPassword: values.confirmPassword,
+      phoneNumber: values.contactPersonPhone, // should be org phone
+      type: values.organizationType,
+      otherType: values.otherOrganizationType,
+      missionStatement: values.missionStatement,
+      address: values.organizationAddress,
+      city: values.city,
+      zipPostalCode: values.zipCode,
+      stateProvince: values.state,
+      country: values.country,
+    });
   };
 
   return (
