@@ -20,6 +20,13 @@ const routerMeta: RouterMetaType = {
     isShow: true,
     isAuth: false,
   },
+  CreateOpportunityPage: {
+    feature: 'opportunity',
+    name: 'Create Opportunity',
+    path: '/opportunity/create',
+    isShow: true,
+    isAuth: false,
+  },
 };
 
 export default routerMeta;
