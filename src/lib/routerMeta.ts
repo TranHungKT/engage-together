@@ -27,6 +27,13 @@ const routerMeta: RouterMetaType = {
     isShow: true,
     isAuth: false,
   },
+  MainDashboardPage: {
+    feature: 'dashboard',
+    name: 'Dashboard',
+    path: '/dashboard',
+    isShow: true,
+    isAuth: false,
+  },
 };
 
 export default routerMeta;
