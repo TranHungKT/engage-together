@@ -1,4 +1,8 @@
-import { OrganizationParams } from './organizationRepositories.params';
+import {
+  GetOrganizationSummaryParams,
+  GetOrganizationSummaryResponse,
+  OrganizationParams,
+} from './organizationRepositories.params';
 import apiClient from '@/repositories/apiClient';
 
 export const createOrganization = async (organizationRequest: OrganizationParams) => {
@@ -8,5 +12,14 @@ export const createOrganization = async (organizationRequest: OrganizationParams
     data: {
       ...organizationRequest,
     },
+  });
+};
+
+export const getOrganizationSummary = async (
+  getOrganizationSummaryRequest: GetOrganizationSummaryParams,
+): Promise<GetOrganizationSummaryResponse> => {
+  return await apiClient({
+    method: 'get',
+    url: `register/organization/summary_opportunity/${getOrganizationSummaryRequest.organizationId}`,
   });
 };

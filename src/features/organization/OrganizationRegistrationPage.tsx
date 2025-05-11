@@ -125,7 +125,7 @@ export default function OrganizationRegistrationPage() {
               </Item>
             </Col>
             <Col span={11}>
-              <Item name="state" label={<FormLabel label="Country" />} rules={countryValidation}>
+              <Item name="country" label={<FormLabel label="Country" />} rules={countryValidation}>
                 <Input size="large" placeholder="VN" />
               </Item>
             </Col>

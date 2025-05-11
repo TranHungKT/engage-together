@@ -4,6 +4,7 @@ import { ArrowRightOutlined } from '@ant-design/icons';
 import { Avatar, Button, Col, List, Row, Typography } from 'antd';
 
 import CardContent from './CardContent/CardContent';
+import { useGetOrganizationSummary } from '@/queries/organizations.query';
 
 const { Title } = Typography;
 
@@ -14,6 +15,13 @@ const list = [
 ];
 
 export default function MainDashboardPage() {
+  const { data } = useGetOrganizationSummary({
+    organizationId: '80a061f1-7041-492b-8d30-e63bc9c591c4',
+  });
+  console.log('<< data', data);
+  if (!data) {
+    return <></>;
+  }
   return (
     <>
       <Row>
@@ -21,13 +29,13 @@ export default function MainDashboardPage() {
       </Row>
       <Row gutter={24} align="middle">
         <Col span={8}>
-          <CardContent cardNumber={245} content="total volunteers" />
+          <CardContent cardNumber={data?.totalVolunteers} content="total volunteers" />
         </Col>
         <Col span={8}>
-          <CardContent cardNumber={22} content="active opportunities" />
+          <CardContent cardNumber={data.numberOfActiveOpportunity} content="active opportunities" />
         </Col>
         <Col span={8}>
-          <CardContent cardNumber={5} content="upcoming events" />
+          <CardContent cardNumber={data.numberOfUpcomingOpportunity} content="upcoming events" />
         </Col>
       </Row>
       <Col>

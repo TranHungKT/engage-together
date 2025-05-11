@@ -3,10 +3,11 @@ import axios, { AxiosResponse, InternalAxiosRequestConfig, AxiosError } from 'ax
 import { ACCESS_TOKEN_KEY } from '@/constants/token.constant';
 import token from '@/lib/token';
 
-const host = 'http://localhost:8090/api';
+const host = 'http://localhost:8080/';
 
 const apiClient = axios.create({
   baseURL: host,
+  headers: {},
 });
 
 const logOnDev = (
