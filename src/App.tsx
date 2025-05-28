@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import { ConfigProvider } from 'antd';
 
+import { ModalProvider } from './components/modal/ModalProvider';
 import Router from './Router';
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
         },
       }}
     >
-      <Router />
+      <ModalProvider>
+        <Router />
+      </ModalProvider>
     </ConfigProvider>
   );
 }

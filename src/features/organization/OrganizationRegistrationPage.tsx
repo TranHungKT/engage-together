@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button, Checkbox, Col, Form, Input, Modal, Row } from 'antd';
+import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
 
 import './styles.scss';
 
@@ -22,6 +22,8 @@ import {
 } from './helper/validation';
 import { IOrganizationRegistration } from './interfaces';
 import OrganizationType from './OrganizationType/OrganizationType';
+import { useErrorModal } from '@/components/modal/useErrorModal';
+import { QueryError } from '@/models/query.models';
 import { useCreateOrganizationMutation } from '@/queries/organizations.query';
 const { Item } = Form;
 const { TextArea } = Input;
@@ -31,19 +33,14 @@ export default function OrganizationRegistrationPage() {
   const createOrganizationMutation = useCreateOrganizationMutation();
   const navigate = useNavigate();
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [error, setError] = useState('');
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
+  const [showModal] = useErrorModal(
+    {
+      message: error,
+    },
+    [error],
+  );
 
   const handleFinish = (values: IOrganizationRegistration) => {
     createOrganizationMutation.mutate(
@@ -66,8 +63,8 @@ export default function OrganizationRegistrationPage() {
         onSuccess: () => {
           navigate('/dashboard');
         },
-        onError: (error) => {
-          console.log('<< erirr', error);
+        onError: (queryError) => {
+          setError((queryError as QueryError)?.response.data.message);
           showModal();
         },
       },
@@ -188,17 +185,6 @@ export default function OrganizationRegistrationPage() {
         </Col>
         <Col />
       </Row>
-      <Modal
-        title="Basic Modal"
-        closable={{ 'aria-label': 'Custom Close Button' }}
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
     </>
   );
 }
