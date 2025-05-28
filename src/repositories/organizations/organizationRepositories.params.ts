@@ -13,3 +13,16 @@ export interface OrganizationParams {
   zipPostalCode: string;
   country: string;
 }
+
+export interface GetOrganizationSummaryParams {
+  organizationId: string;
+}
+
+export interface GetOrganizationSummaryResponse {
+  data: {
+    numberOfActiveOpportunity: number;
+    numberOfUpcomingOpportunity: number;
+    totalVolunteers: number;
+    totalOpportunities: number;
+  };
+}

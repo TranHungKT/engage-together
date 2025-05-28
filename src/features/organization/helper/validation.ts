@@ -41,8 +41,8 @@ export const organizationAddressValidation: Rule[] = [
   },
 ];
 
-export const contactPersonPhoneValidation: Rule[] = [
-  { required: true, message: 'Contact Person Phone is required.' },
+export const phoneNumberValidation: Rule[] = [
+  { required: true, message: 'Phone number is required.' },
   {
     pattern: PHONE_NUMBER_PATTERN,
     message: 'Please enter a valid phone number.',

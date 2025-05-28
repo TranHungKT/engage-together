@@ -30,12 +30,12 @@ export default function OrganizationType({ form }: OrganizationTypeProps) {
           allowClear
           size="large"
         >
-          <Option value="Nonprofit">Nonprofit</Option>
-          <Option value="Community Group">Community Group</Option>
-          <Option value="Educational Institution">Educational Institution</Option>
-          <Option value="Religious Organization">Religious Organization</Option>
-          <Option value="Health Organization">Health Organization</Option>
-          <Option value="Other">Other</Option>
+          <Option value="NON_PROFIT">Nonprofit</Option>
+          <Option value="COMMUNITY_GROUP">Community Group</Option>
+          <Option value="EDUCATIONAL_INSTITUTION">Educational Institution</Option>
+          <Option value="RELIGIOUS_ORGANIZATION">Religious Organization</Option>
+          <Option value="HEALTH_ORGANIZATION">Health Organization</Option>
+          <Option value="OTHER">Other</Option>
         </Select>
       </Item>
       <Item
@@ -45,7 +45,7 @@ export default function OrganizationType({ form }: OrganizationTypeProps) {
         }
       >
         {({ getFieldValue }) => {
-          return getFieldValue('organizationType') === 'Other' ? (
+          return getFieldValue('organizationType') === 'OTHER' ? (
             <Item
               name="otherOrganizationType"
               label={<FormLabel label="Other Organization type" />}

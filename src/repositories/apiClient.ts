@@ -3,10 +3,11 @@ import axios, { AxiosResponse, InternalAxiosRequestConfig, AxiosError } from 'ax
 import { ACCESS_TOKEN_KEY } from '@/constants/token.constant';
 import token from '@/lib/token';
 
-const host = 'http://localhost:8090/api';
+const host = 'http://localhost:8080/';
 
 const apiClient = axios.create({
   baseURL: host,
+  headers: {},
 });
 
 const logOnDev = (
@@ -23,7 +24,7 @@ apiClient.interceptors.request.use((request) => {
   const { method, url } = request;
 
   if (jwtToken) {
-    request.headers['Authorization'] = `Token ${jwtToken}`;
+    request.headers['Authorization'] = `Bearer ${jwtToken}`;
   }
 
   logOnDev(`🚀 [${method?.toUpperCase()}] ${url} | Request`, request);
