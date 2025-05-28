@@ -18,10 +18,7 @@ export default function MainDashboardPage() {
   const { data } = useGetOrganizationSummary({
     organizationId: '80a061f1-7041-492b-8d30-e63bc9c591c4',
   });
-  console.log('<< data', data);
-  if (!data) {
-    return <></>;
-  }
+
   return (
     <>
       <Row>

@@ -1,8 +1,7 @@
 export interface IOrganizationRegistration {
   organizationName: string;
   organizationEmail: string;
-  contactPersonPhone: string;
-  contactPersonEmail: string;
+  organizationPhoneNumber: string;
   organizationAddress: string;
   organizationType: string;
   otherOrganizationType: string;

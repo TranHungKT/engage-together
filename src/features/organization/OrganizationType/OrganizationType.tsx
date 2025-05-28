@@ -45,7 +45,7 @@ export default function OrganizationType({ form }: OrganizationTypeProps) {
         }
       >
         {({ getFieldValue }) => {
-          return getFieldValue('organizationType') === 'Other' ? (
+          return getFieldValue('organizationType') === 'OTHER' ? (
             <Item
               name="otherOrganizationType"
               label={<FormLabel label="Other Organization type" />}

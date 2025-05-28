@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useSuspenseQuery } from '@tanstack/react-query';
 
 import { QUERY_ORGANIZATION_SUMMARY_KEY } from '@/constants/query.constant';
 import {
@@ -13,7 +13,7 @@ export const useCreateOrganizationMutation = () =>
   });
 
 export const useGetOrganizationSummary = ({ organizationId }: GetOrganizationSummaryParams) =>
-  useQuery({
+  useSuspenseQuery({
     queryFn: () => getOrganizationSummary({ organizationId }).then((res) => res.data),
     queryKey: [QUERY_ORGANIZATION_SUMMARY_KEY, organizationId],
   });
