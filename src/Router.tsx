@@ -30,7 +30,6 @@ const Router = () => {
           key={props.path}
           path={props.path}
           element={
-            // TODO: HANDLE PROTECTED ROUTE
             <ProtectedRoute path={props.path}>
               <Suspense fallback={<LoadingFallback />}>
                 <ErrorBoundary

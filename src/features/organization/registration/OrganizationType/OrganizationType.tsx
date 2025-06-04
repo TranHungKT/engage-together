@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Form, FormInstance, Input, Select } from 'antd';
 
-import FormLabel from '../FormLabel/FormLabel';
+import FormLabel from '../../../../components/FormLabel/FormLabel';
 import { organizationTypeValidation } from '../helper/validation';
 import { IOrganizationRegistration } from '../interfaces';
 const { Item } = Form;

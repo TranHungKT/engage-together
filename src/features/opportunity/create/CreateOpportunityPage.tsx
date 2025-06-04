@@ -5,7 +5,7 @@ import { Col, Form, Row, Input, DatePicker, Button, Typography } from 'antd';
 import { cityValidation, descriptionValidation, titleValidation } from './helper/validation';
 import { ICreateOpportunityForm } from './interfaces';
 import RequirementsSelection from './Requirements/RequirementsSelection';
-import FormLabel from '../organization/FormLabel/FormLabel';
+import FormLabel from '@/components/FormLabel/FormLabel';
 
 const { Item } = Form;
 const { TextArea } = Input;

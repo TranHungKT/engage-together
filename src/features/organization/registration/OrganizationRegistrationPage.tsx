@@ -6,7 +6,6 @@ import './styles.scss';
 
 import { useNavigate } from 'react-router-dom';
 
-import FormLabel from './FormLabel/FormLabel';
 import {
   cityValidation,
   confirmPasswordValidation,
@@ -22,6 +21,7 @@ import {
 } from './helper/validation';
 import { IOrganizationRegistration } from './interfaces';
 import OrganizationType from './OrganizationType/OrganizationType';
+import FormLabel from '@/components/FormLabel/FormLabel';
 import { useErrorModal } from '@/components/modal/useErrorModal';
 import { QueryError } from '@/models/query.models';
 import { useCreateOrganizationMutation } from '@/queries/organizations.query';

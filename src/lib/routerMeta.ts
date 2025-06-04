@@ -14,21 +14,21 @@ export type RouterMetaType = {
 
 const routerMeta: RouterMetaType = {
   OrganizationRegistrationPage: {
-    feature: 'organization',
+    feature: 'organization/registration',
     name: 'Organization Registration',
     path: '/organization/registration',
     isShow: true,
     isAuth: true,
   },
   CreateOpportunityPage: {
-    feature: 'opportunity',
+    feature: 'opportunity/create',
     name: 'Create Opportunity',
     path: '/opportunity/create',
     isShow: true,
     isAuth: true,
   },
   MainDashboardPage: {
-    feature: 'dashboard',
+    feature: 'dashboard/user',
     name: 'Dashboard',
     path: '/dashboard',
     isShow: true,
