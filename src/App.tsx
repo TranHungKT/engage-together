@@ -4,7 +4,9 @@ import './App.css';
 import { ConfigProvider } from 'antd';
 
 import { ModalProvider } from './components/modal/ModalProvider';
+import UserContextProvider from './contexts/UserContextProvider';
 import Router from './Router';
+
 function App() {
   return (
     <ConfigProvider
@@ -14,9 +16,11 @@ function App() {
         },
       }}
     >
-      <ModalProvider>
-        <Router />
-      </ModalProvider>
+      <UserContextProvider>
+        <ModalProvider>
+          <Router />
+        </ModalProvider>
+      </UserContextProvider>
     </ConfigProvider>
   );
 }

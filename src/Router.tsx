@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import ErrorFallback from './components/ErrorFallback';
 import LoadingFallback from './components/LoadingFallback';
+import ProtectedRoute from './HOC/ProtectedRoute';
 import routerMeta, { IRouterMeta } from '@/lib/routerMeta';
 
 const lazyImport = (pageName: string) => lazy(() => import(`@/features/${pageName}`));
@@ -30,17 +31,18 @@ const Router = () => {
           path={props.path}
           element={
             // TODO: HANDLE PROTECTED ROUTE
-
-            <Suspense fallback={<LoadingFallback />}>
-              <ErrorBoundary
-                onReset={reset}
-                fallbackRender={({ resetErrorBoundary }) => (
-                  <ErrorFallback resetErrorBoundary={resetErrorBoundary} />
-                )}
-              >
-                <Component />
-              </ErrorBoundary>
-            </Suspense>
+            <ProtectedRoute path={props.path}>
+              <Suspense fallback={<LoadingFallback />}>
+                <ErrorBoundary
+                  onReset={reset}
+                  fallbackRender={({ resetErrorBoundary }) => (
+                    <ErrorFallback resetErrorBoundary={resetErrorBoundary} />
+                  )}
+                >
+                  <Component />
+                </ErrorBoundary>
+              </Suspense>
+            </ProtectedRoute>
           }
         />
       ))}
