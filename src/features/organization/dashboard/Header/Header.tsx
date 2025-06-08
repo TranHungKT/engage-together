@@ -12,18 +12,20 @@ const { Title, Text } = Typography;
 
 export default function Header({ organizationDetails }: HeaderProps) {
   return (
-    <Row>
-      <Col>
-        <Avatar icon={<AntDesignOutlined />} />
+    <Row align="middle" justify="center">
+      <Col span={4}>
+        <Avatar icon={<AntDesignOutlined />} size={100} />
       </Col>
-      <Col>
+      <Col span={12}>
         <Title level={3}>{organizationDetails.name}</Title>
         <Text>
+          Type:{' '}
           {organizationDetails.type === 'OTHER'
             ? organizationDetails.otherType
             : OrganizationType[organizationDetails.type as OrganizationTypeKeys]}{' '}
           organization
         </Text>
+        <br />
         <Text>{organizationDetails.numberOfFollowers} followers</Text>
       </Col>
       <Col>

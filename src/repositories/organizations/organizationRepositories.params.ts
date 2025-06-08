@@ -30,7 +30,7 @@ export interface GetOrganizationSummaryResponse {
 }
 
 export interface OrganizationAdmin {
-  id: string;
+  adminId: string;
 }
 
 export interface GetOrganizationDetailsResponse {
@@ -38,7 +38,7 @@ export interface GetOrganizationDetailsResponse {
     name: string;
     type: string;
     otherType: string;
-    admin: OrganizationAdmin;
+    admin: OrganizationAdmin[];
     numberOfOpportunity: number;
     numberOfFollowers: number;
   };
