@@ -20,6 +20,13 @@ const routerMeta: RouterMetaType = {
     isShow: true,
     isAuth: true,
   },
+  OrganizationDashboardPage: {
+    feature: 'organization/dashboard',
+    name: 'Organization Dashboard',
+    path: '/organization/dashboard/:id',
+    isShow: true,
+    isAuth: true,
+  },
   CreateOpportunityPage: {
     feature: 'opportunity/create',
     name: 'Create Opportunity',
