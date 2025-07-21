@@ -12,10 +12,10 @@ export default function ProtectedRoute({ children, path }: ProtectedRouteProps) 
   const { isLogin } = useContext(UserContext);
 
   if (!isLogin && path !== routerMeta.LoginPage.path) {
-    return <Navigate to={routerMeta.SignInPage.path} replace={true} />;
+    return <Navigate to={routerMeta.LoginPage.path} replace={true} />;
   }
 
-  if (isLogin && path == routerMeta.LoginPage.path) {
+  if (isLogin && path === routerMeta.LoginPage.path) {
     return <Navigate to={routerMeta.MainDashboardPage.path} replace={true} />;
   }
 
