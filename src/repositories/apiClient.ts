@@ -46,9 +46,8 @@ apiClient.interceptors.response.use(
     const { status, data } = error.response;
     const { method, url } = error.config;
 
-    if (status === 429) {
-      token.removeToken('ACCESS_TOKEN_KEY');
-      window.location.reload();
+    if (status === 401) {
+      token.removeToken(ACCESS_TOKEN_KEY);
     }
 
     logOnDev(

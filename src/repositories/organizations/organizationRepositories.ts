@@ -10,7 +10,7 @@ import apiClient from '@/repositories/apiClient';
 export const createOrganization = async (organizationRequest: OrganizationParams) => {
   return await apiClient({
     method: 'post',
-    url: 'register/organization',
+    url: '/organization/register',
     data: {
       ...organizationRequest,
     },
@@ -22,7 +22,7 @@ export const getOrganizationSummary = async (
 ): Promise<GetOrganizationSummaryResponse> => {
   return await apiClient({
     method: 'get',
-    url: `register/organization/summary_opportunity/${getOrganizationSummaryRequest.organizationId}`,
+    url: `/organization/summary_opportunity/${getOrganizationSummaryRequest.organizationId}`,
   });
 };
 
@@ -31,6 +31,6 @@ export const getOrganizationDetails = async (
 ): Promise<GetOrganizationDetailsResponse> => {
   return await apiClient({
     method: 'get',
-    url: `register/organization/${getOrganizationDetailsParams.organizationId}`,
+    url: `/organization/${getOrganizationDetailsParams.organizationId}`,
   });
 };
