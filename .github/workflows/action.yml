@@ -1,0 +1,21 @@
+name: CD
+on: 
+  push:
+    branches: [ setup_git_actions ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+
+      - name: Install dependencies
+        run: npm install 
+
+      - name: build
+        run: npm run build
