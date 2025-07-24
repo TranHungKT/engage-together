@@ -22,6 +22,7 @@ export const useModal = (
   inputs: DependencyList = [],
 ): [ShowModal, HideModal] => {
   const key = useMemo(generateModalKey, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const modal = useMemo(() => component, [...inputs, component]);
   const context = useContext(ModalContext);
   const [isShown, setShown] = useState<boolean>(false);
