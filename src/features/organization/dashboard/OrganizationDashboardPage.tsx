@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import { useParams } from 'react-router-dom';
 import Header from './Header/Header';
+import TopOpportunitiesContainer from './TopOpportunities/TopOpportunitiesContainer';
 import CardContent from '@/features/dashboard/user/CardContent/CardContent';
 import { useGetOrganizationDetails } from '@/queries/organizations.query';
 
@@ -25,6 +26,7 @@ export default function OrganizationDashboardPage() {
           <CardContent cardNumber={20} content="upcoming events" />
         </Col>
       </Row>
+      <TopOpportunitiesContainer />
     </div>
   );
 }
