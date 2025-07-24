@@ -23,12 +23,10 @@ export const useGetOrganizationSummary = ({ organizationId }: GetOrganizationSum
   useSuspenseQuery({
     queryFn: () => getOrganizationSummary({ organizationId }).then((res) => res.data),
     queryKey: [QUERY_ORGANIZATION_SUMMARY_KEY, organizationId],
-    refetchOnMount: 'always',
   });
 
 export const useGetOrganizationDetails = ({ organizationId }: GetOrganizationDetailsParams) =>
   useSuspenseQuery({
     queryFn: () => getOrganizationDetails({ organizationId }).then((res) => res.data),
     queryKey: [QUERY_ORGANIZATION_DETAILS_KEY, organizationId],
-    refetchOnMount: 'always',
   });
