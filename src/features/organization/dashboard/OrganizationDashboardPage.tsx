@@ -16,7 +16,7 @@ export default function OrganizationDashboardPage() {
       <Header organizationDetails={data} />
       <Row gutter={24} align="middle">
         <Col span={8}>
-          <CardContent cardNumber={data.numberOfOpportunity} content="total active opportunities" />
+          <CardContent cardNumber={data.numberOfActivity} content="total active activities" />
         </Col>
         <Col span={8}>
           <CardContent cardNumber={data.numberOfFollowers} content="total followers" />

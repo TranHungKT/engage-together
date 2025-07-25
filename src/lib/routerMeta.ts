@@ -27,10 +27,10 @@ const routerMeta: RouterMetaType = {
     isShow: true,
     isAuth: true,
   },
-  CreateOpportunityPage: {
-    feature: 'opportunity/create',
-    name: 'Create Opportunity',
-    path: '/opportunity/create',
+  CreateActivityPage: {
+    feature: 'activity/create',
+    name: 'Create Activity',
+    path: '/activity/create',
     isShow: true,
     isAuth: true,
   },

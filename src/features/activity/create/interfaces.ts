@@ -1,4 +1,4 @@
-export interface ICreateOpportunityForm {
+export interface ICreateActivityForm {
   title: string;
   description: string;
   address: string;
@@ -9,7 +9,7 @@ export interface ICreateOpportunityForm {
   status: string;
 }
 
-export interface ICreateOpportunity {
+export interface ICreateActivity {
   organizationId: string;
   title: string;
   description: string;

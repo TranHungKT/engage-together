@@ -11,7 +11,7 @@ const { Title } = Typography;
 const list = [
   { event: 'New volunteer sign-up', time: 'Jun 1' },
   { event: 'New event registration', time: 'Jun 2' },
-  { event: 'New volunteer opportunity', time: 'Jun 1' },
+  { event: 'New volunteer activity', time: 'Jun 1' },
 ];
 
 export default function MainDashboardPage() {
@@ -29,10 +29,10 @@ export default function MainDashboardPage() {
           <CardContent cardNumber={data?.totalVolunteers} content="total volunteers" />
         </Col>
         <Col span={8}>
-          <CardContent cardNumber={data.numberOfActiveOpportunity} content="active opportunities" />
+          <CardContent cardNumber={data.numberOfActiveActivity} content="active activities" />
         </Col>
         <Col span={8}>
-          <CardContent cardNumber={data.numberOfUpcomingOpportunity} content="upcoming events" />
+          <CardContent cardNumber={data.numberOfUpcomingActivity} content="upcoming events" />
         </Col>
       </Row>
       <Col>

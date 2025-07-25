@@ -22,7 +22,7 @@ export const getOrganizationSummary = async (
 ): Promise<GetOrganizationSummaryResponse> => {
   return await apiClient({
     method: 'get',
-    url: `organization/summary_opportunity/${getOrganizationSummaryRequest.organizationId}`,
+    url: `organization/summary_activity/${getOrganizationSummaryRequest.organizationId}`,
   });
 };
 

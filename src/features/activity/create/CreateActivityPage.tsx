@@ -3,7 +3,7 @@ import React from 'react';
 import { Col, Form, Row, Input, DatePicker, Button, Typography } from 'antd';
 
 import { cityValidation, descriptionValidation, titleValidation } from './helper/validation';
-import { ICreateOpportunityForm } from './interfaces';
+import { ICreateActivityForm } from './interfaces';
 import RequirementsSelection from './Requirements/RequirementsSelection';
 import FormLabel from '@/components/FormLabel/FormLabel';
 
@@ -12,9 +12,9 @@ const { TextArea } = Input;
 const { RangePicker } = DatePicker;
 const { Title } = Typography;
 
-export default function CreateOpportunityPage() {
-  const [form] = Form.useForm<ICreateOpportunityForm>();
-  const handleSubmit = (values: ICreateOpportunityForm) => {
+export default function CreateActivityPage() {
+  const [form] = Form.useForm<ICreateActivityForm>();
+  const handleSubmit = (values: ICreateActivityForm) => {
     console.log('<<< value', values);
   };
 

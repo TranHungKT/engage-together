@@ -22,10 +22,10 @@ export type GetOrganizationDetailsParams = GetOrganizationSummaryParams;
 
 export interface GetOrganizationSummaryResponse {
   data: {
-    numberOfActiveOpportunity: number;
-    numberOfUpcomingOpportunity: number;
+    numberOfActiveActivity: number;
+    numberOfUpcomingActivity: number;
     totalVolunteers: number;
-    totalOpportunities: number;
+    totalActivities: number;
   };
 }
 
@@ -39,7 +39,7 @@ export interface GetOrganizationDetailsResponse {
     type: string;
     otherType: string;
     admin: OrganizationAdmin[];
-    numberOfOpportunity: number;
+    numberOfActivity: number;
     numberOfFollowers: number;
   };
 }
