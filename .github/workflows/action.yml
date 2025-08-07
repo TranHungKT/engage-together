@@ -3,7 +3,7 @@ on:
   push:
     branches: [ feature/enhance-git-actions ]
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,3 +23,14 @@ jobs:
         with: 
           push: true
           tags: tranhungkt/app:latest
+
+  deploy:
+    needs: build
+    runs-on: aws-ec2
+    steps:
+      - name: Pull image from docker hub
+        run: docker pull tranhungkt/app:latest
+      - name: Delete old container
+        run: docker rm -f engage-together-container
+      - name: Run docker container
+        run: docker run -d -p 3000:80 --name engage-together-container tranhungkt/app
