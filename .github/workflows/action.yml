@@ -1,7 +1,7 @@
 name: CD
 on: 
   push:
-    branches: [ feature/setup_git_actions ]
+    branches: [ feature/enhance-git-actions ]
 jobs:
   deploy:
     runs-on: ubuntu-latest
