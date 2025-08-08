@@ -10,3 +10,17 @@ export interface QueryError {
     };
   };
 }
+
+export interface PaginationRequest {
+  pageNumber?: number;
+  pageSize?: number;
+  sortOrder?: 'asc' | 'desc';
+}
+
+export interface PaginationResponse<T> {
+  pageNumber: number;
+  pageSize: number;
+  totalElementCount: number;
+  totalPageCount: number;
+  content: T[];
+}

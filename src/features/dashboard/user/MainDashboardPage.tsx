@@ -16,7 +16,7 @@ const list = [
 
 export default function MainDashboardPage() {
   const { data } = useGetOrganizationSummary({
-    organizationId: '80a061f1-7041-492b-8d30-e63bc9c591c4',
+    organizationId: '076c3cc5-3a2d-4ead-b8cf-477e2eef0745',
   });
 
   return (
