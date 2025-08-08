@@ -41,5 +41,8 @@ export interface GetOrganizationDetailsResponse {
     admin: OrganizationAdmin[];
     numberOfActivity: number;
     numberOfFollowers: number;
+    email: string;
+    phoneNumber: string;
+    address: string;
   };
 }
