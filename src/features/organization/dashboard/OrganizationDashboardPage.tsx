@@ -1,9 +1,24 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, TabsProps, Tabs } from 'antd';
 import { useParams } from 'react-router-dom';
 import Header from './Header/Header';
+import PastActivities from './PastActivities/PastActivities';
+import UpcomingActivities from './UpcomingActivities/UpcomingActivities';
 import CardContent from '@/features/dashboard/user/CardContent/CardContent';
 import { useGetOrganizationDetails } from '@/queries/organizations.query';
+
+const tabItems: TabsProps['items'] = [
+  {
+    key: 'Upcoming-activities',
+    label: 'Upcoming Activities',
+    children: <UpcomingActivities />,
+  },
+  {
+    key: 'Past-activities',
+    label: 'Past Activities',
+    children: <PastActivities />,
+  },
+];
 
 export default function OrganizationDashboardPage() {
   const { id } = useParams();
@@ -12,19 +27,33 @@ export default function OrganizationDashboardPage() {
   });
 
   return (
-    <div>
-      <Header organizationDetails={data} />
-      <Row gutter={24} align="middle">
-        <Col span={8}>
-          <CardContent cardNumber={data.numberOfActivity} content="total active activities" />
-        </Col>
-        <Col span={8}>
-          <CardContent cardNumber={data.numberOfFollowers} content="total followers" />
-        </Col>
-        <Col span={8}>
-          <CardContent cardNumber={20} content="upcoming events" />
-        </Col>
-      </Row>
-    </div>
+    <Row justify="center">
+      <Col
+        xxl={{ span: 16 }}
+        xl={{ span: 16 }}
+        lg={{ span: 16 }}
+        md={{ span: 22 }}
+        sm={{ span: 22 }}
+        xs={{ span: 22 }}
+      >
+        <Header organizationDetails={data} />
+        <Row gutter={24} align="middle">
+          <Col span={8}>
+            <CardContent cardNumber={data.numberOfActivity} content="total active activities" />
+          </Col>
+          <Col span={8}>
+            <CardContent cardNumber={data.numberOfFollowers} content="total followers" />
+          </Col>
+          <Col span={8}>
+            <CardContent cardNumber={20} content="upcoming events" />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={24}>
+            <Tabs items={tabItems} />
+          </Col>
+        </Row>
+      </Col>
+    </Row>
   );
 }
