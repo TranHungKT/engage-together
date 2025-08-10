@@ -1,0 +1,13 @@
+.login {
+  &_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &_button {
+    max-width: 600px;
+    width: 100%;
+  }
+}
