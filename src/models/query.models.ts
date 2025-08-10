@@ -24,3 +24,15 @@ export interface PaginationResponse<T> {
   totalPageCount: number;
   content: T[];
 }
+
+export interface ErrorResponse {
+  code: string;
+  message: string;
+  response: {
+    data: {
+      message: string;
+      status: string;
+    };
+    status: number;
+  };
+}

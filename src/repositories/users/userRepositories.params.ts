@@ -5,3 +5,12 @@ export interface CurrentUserDetailsResponse {
     email: string;
   };
 }
+
+export interface LoginUserRequest {
+  username: string;
+  password: string;
+}
+
+export interface LoginUserResponse {
+  data: { token: string };
+}

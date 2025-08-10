@@ -3,6 +3,8 @@ import axios, { AxiosResponse, InternalAxiosRequestConfig, AxiosError } from 'ax
 import { ACCESS_TOKEN_KEY } from '@/constants/token.constant';
 import token from '@/lib/token';
 
+const AUTHENTICATION_URL = ['user/login', 'user/register'];
+
 const host = 'http://localhost:8080/';
 
 const apiClient = axios.create({
@@ -43,10 +45,11 @@ apiClient.interceptors.response.use(
   },
   (error) => {
     const { message } = error;
+
     const { status, data } = error.response;
     const { method, url } = error.config;
 
-    if (status === 401) {
+    if (status === 401 && !AUTHENTICATION_URL.includes(url)) {
       token.removeToken(ACCESS_TOKEN_KEY);
       window.location.reload();
     }
