@@ -45,7 +45,7 @@ apiClient.interceptors.response.use(
   },
   (error) => {
     const { message } = error;
-    console.log('<< error', error);
+
     const { status, data } = error.response;
     const { method, url } = error.config;
 
