@@ -14,3 +14,18 @@ export interface LoginUserRequest {
 export interface LoginUserResponse {
   data: { token: string };
 }
+
+export interface SearchUserRequest {
+  organizationId: string;
+  username?: string;
+}
+
+export interface SearchUserResponse {
+  data: {
+    id: string;
+    email: string;
+    username: string;
+    name: string;
+    userRole: string;
+  }[];
+}

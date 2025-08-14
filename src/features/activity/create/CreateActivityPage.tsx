@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Col, Form, Row, Input, DatePicker, Button, Typography } from 'antd';
+import { Col, Form, Row, Input, DatePicker, Button, Typography, Select, InputNumber } from 'antd';
 
+import { useNavigate, useParams } from 'react-router-dom';
+import { CategoryOptions } from './constants';
 import { cityValidation, descriptionValidation, titleValidation } from './helper/validation';
 import { ICreateActivityForm } from './interfaces';
 import RequirementsSelection from './Requirements/RequirementsSelection';
 import FormLabel from '@/components/FormLabel/FormLabel';
+import { useErrorModal } from '@/components/modal/useErrorModal';
+import { QueryError } from '@/models/query.models';
+import { useCreateActivityMutation } from '@/queries/activity.query';
+import { useSearchUser } from '@/queries/users.query';
 
 const { Item } = Form;
 const { TextArea } = Input;
@@ -14,8 +20,56 @@ const { Title } = Typography;
 
 export default function CreateActivityPage() {
   const [form] = Form.useForm<ICreateActivityForm>();
+
+  const mutation = useCreateActivityMutation();
+
+  const { organizationId } = useParams();
+
+  const { data } = useSearchUser({ organizationId: organizationId || '', username: '' });
+
+  const navigate = useNavigate();
+
+  const [error, setError] = useState('');
+
+  const [showModal] = useErrorModal(
+    {
+      message: error,
+    },
+    [error],
+  );
+
+  const userAdminOptions = data.map((user) => ({
+    label: user.name,
+    value: user.id,
+  }));
+
   const handleSubmit = (values: ICreateActivityForm) => {
-    console.log('<<< value', values);
+    mutation.mutate(
+      {
+        organizationId: organizationId || '',
+        title: values.title,
+        description: values.description,
+        address: values.address,
+        city: values.city,
+        zipCode: values.zipCode,
+        startDateTime: new Date(values.rangeTime[0]),
+        endDateTime: new Date(values.rangeTime[1]),
+        requirements: values.requirements,
+        status: 'ACTIVE',
+        adminUsers: values.adminUsers,
+        maxAttendees: values.maxAttendees,
+        activityCategories: values.activityCategories,
+      },
+      {
+        onSuccess: () => {
+          navigate(`/organization/dashboard/${organizationId}`);
+        },
+        onError: (queryError) => {
+          setError((queryError as QueryError)?.response.data.message);
+          showModal();
+        },
+      },
+    );
   };
 
   return (
@@ -71,6 +125,15 @@ export default function CreateActivityPage() {
           </Row>
           <Item name="requirements" label={<FormLabel label="Requirements" />}>
             <RequirementsSelection />
+          </Item>
+          <Item name="adminUsers" label={<FormLabel label="Select admin users" />}>
+            <Select mode="multiple" allowClear options={userAdminOptions} />
+          </Item>
+          <Item name="activityCategories" label={<FormLabel label="Select category" />}>
+            <Select mode="multiple" allowClear options={CategoryOptions} />
+          </Item>
+          <Item name="maxAttendees" label={<FormLabel label="Participant limit" />}>
+            <InputNumber style={{ width: '100%' }} />
           </Item>
           <Button type="primary" htmlType="submit">
             Save

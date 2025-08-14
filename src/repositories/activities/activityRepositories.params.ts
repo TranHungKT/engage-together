@@ -40,3 +40,19 @@ export interface CategoriesResponse {
     activityId: string;
   };
 }
+
+export type CreateActivityRequest = {
+  organizationId: string;
+  title: string;
+  description: string;
+  address: string;
+  city: string;
+  zipCode: string;
+  startDateTime: Date;
+  endDateTime: Date;
+  requirements: string[];
+  status: string;
+  adminUsers: string[];
+  maxAttendees: number;
+  activityCategories: string[];
+};
