@@ -3,6 +3,8 @@ import {
   CurrentUserDetailsResponse,
   LoginUserRequest,
   LoginUserResponse,
+  SearchUserRequest,
+  SearchUserResponse,
 } from './userRepositories.params';
 
 export const getCurrentUserDetails = async (): Promise<CurrentUserDetailsResponse> => {
@@ -16,6 +18,14 @@ export const loginUser = async (params: LoginUserRequest): Promise<LoginUserResp
   return await apiClient({
     method: 'post',
     url: 'user/login',
+    data: { ...params },
+  });
+};
+
+export const searchUser = async (params: SearchUserRequest): Promise<SearchUserResponse> => {
+  return await apiClient({
+    method: 'post',
+    url: 'user/search',
     data: { ...params },
   });
 };

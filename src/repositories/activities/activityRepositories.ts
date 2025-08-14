@@ -1,5 +1,9 @@
 import apiClient from '../apiClient';
-import { SearchActivityRequest, SearchActivityResponse } from './activityRepositories.params';
+import {
+  CreateActivityRequest,
+  SearchActivityRequest,
+  SearchActivityResponse,
+} from './activityRepositories.params';
 
 export const searchActivity = async (
   searchActivityRequest: SearchActivityRequest,
@@ -9,6 +13,16 @@ export const searchActivity = async (
     url: 'activity/search',
     data: {
       ...searchActivityRequest,
+    },
+  });
+};
+
+export const createActivity = async (createActivityRequest: CreateActivityRequest) => {
+  return await apiClient({
+    method: 'post',
+    url: 'activity/register',
+    data: {
+      ...createActivityRequest,
     },
   });
 };

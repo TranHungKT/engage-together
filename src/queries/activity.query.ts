@@ -1,6 +1,6 @@
-import { useSuspenseQuery } from '@tanstack/react-query';
+import { useMutation, useSuspenseQuery } from '@tanstack/react-query';
 import { QUERY_SEARCH_ACTIVITY_KEY } from '@/constants/query.constant';
-import { searchActivity } from '@/repositories/activities/activityRepositories';
+import { createActivity, searchActivity } from '@/repositories/activities/activityRepositories';
 import {
   SearchActivityRequest,
   SearchActivityResponse,
@@ -12,4 +12,9 @@ export const useSuspenseSearchActivity = (
   useSuspenseQuery({
     queryFn: () => searchActivity(searchActivityRequest).then((res) => res.data),
     queryKey: [QUERY_SEARCH_ACTIVITY_KEY],
+  });
+
+export const useCreateActivityMutation = () =>
+  useMutation({
+    mutationFn: createActivity,
   });

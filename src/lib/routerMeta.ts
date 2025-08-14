@@ -30,7 +30,7 @@ const routerMeta: RouterMetaType = {
   CreateActivityPage: {
     feature: 'activity/create',
     name: 'Create Activity',
-    path: '/activity/create',
+    path: '/activity/create/:organizationId',
     isShow: true,
     isAuth: true,
   },
