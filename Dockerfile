@@ -19,9 +19,11 @@ FROM nginx:stable-alpine
 WORKDIR /usr/share/nginx/html
 
 RUN rm -rf *
+RUN rm /etc/nginx/conf.d/default.conf
 
 COPY --from=build /app/build .
+COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80/tcp
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
