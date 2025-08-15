@@ -22,6 +22,6 @@ RUN rm -rf *
 
 COPY --from=build /app/build .
 
-EXPOSE 80
+EXPOSE 80/tcp
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
