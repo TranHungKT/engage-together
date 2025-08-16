@@ -10,6 +10,8 @@ export const descriptionValidation: Rule[] = [
   },
 ];
 
+export const addressValidation: Rule[] = [{ required: true, message: 'Address is required.' }];
+
 export const cityValidation: Rule[] = [
   {
     required: true,
@@ -39,9 +41,58 @@ export const stateProvinceValidation: Rule[] = [
   },
 ];
 
+export const postalCodeValidation: Rule[] = [
+  {
+    required: true,
+    message: 'State/Province is required.',
+  },
+];
+
 export const countryValidation: Rule[] = [
   {
     required: true,
     message: 'Country is required.',
+  },
+];
+
+export const datePickerValidation: Rule[] = [
+  {
+    required: true,
+    message: 'Date time is required.',
+  },
+];
+
+export const requirementsValidation: Rule[] = [
+  {
+    required: true,
+    message: 'Requirements is required.',
+  },
+];
+
+export const adminUsersValidation: Rule[] = [
+  {
+    required: true,
+    message: 'Admin user is required.',
+  },
+];
+
+export const categoryValidation: Rule[] = [
+  {
+    required: true,
+    message: 'Category is required.',
+  },
+];
+
+export const participantValidation: Rule[] = [
+  {
+    required: true,
+    message: 'Participant is required.',
+  },
+];
+
+export const maxAttendeesValidation: Rule[] = [
+  {
+    required: true,
+    message: 'Participant limit is required.',
   },
 ];

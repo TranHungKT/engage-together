@@ -20,7 +20,7 @@ export const searchActivity = async (
 export const createActivity = async (createActivityRequest: CreateActivityRequest) => {
   return await apiClient({
     method: 'post',
-    url: 'activity/register',
+    url: 'activity/create',
     data: {
       ...createActivityRequest,
     },
