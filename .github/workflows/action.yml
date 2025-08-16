@@ -1,7 +1,7 @@
 name: CD
 on: 
   push:
-    branches: [ feature/enhance-git-actions ]
+    branches: [ feature/config_nginx_to_host_app ]
 jobs:
   build:
     runs-on: ubuntu-latest
