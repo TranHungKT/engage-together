@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Col, Form, Row, Input, DatePicker, Button, Typography, Select, InputNumber } from 'antd';
 import dayjs from 'dayjs';
 import { useNavigate, useParams } from 'react-router-dom';
-import { CategoryOptions } from './constants';
+
 import {
   addressValidation,
   adminUsersValidation,
@@ -20,6 +20,7 @@ import { ICreateActivityForm } from './interfaces';
 import RequirementsSelection from './Requirements/RequirementsSelection';
 import FormLabel from '@/components/FormLabel/FormLabel';
 import { useErrorModal } from '@/components/modal/useErrorModal';
+import { CategoryOptions } from '@/constants/activity.constant';
 import { QueryError } from '@/models/query.models';
 import { useCreateActivityMutation } from '@/queries/activity.query';
 import { useSearchUser } from '@/queries/users.query';

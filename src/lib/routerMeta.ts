@@ -34,6 +34,13 @@ const routerMeta: RouterMetaType = {
     isShow: true,
     isAuth: true,
   },
+  ActivityDetailsPage: {
+    feature: 'activity/details',
+    name: 'Activity Details',
+    path: '/activity/details/:activityId',
+    isShow: true,
+    isAuth: true,
+  },
   MainDashboardPage: {
     feature: 'dashboard/user',
     name: 'Dashboard',
