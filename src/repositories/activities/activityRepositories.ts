@@ -1,6 +1,8 @@
 import apiClient from '../apiClient';
 import {
   CreateActivityRequest,
+  GetActivityDetailsRequest,
+  GetActivityDetailsResponse,
   SearchActivityRequest,
   SearchActivityResponse,
 } from './activityRepositories.params';
@@ -24,5 +26,14 @@ export const createActivity = async (createActivityRequest: CreateActivityReques
     data: {
       ...createActivityRequest,
     },
+  });
+};
+
+export const getActivityDetails = async (
+  request: GetActivityDetailsRequest,
+): Promise<GetActivityDetailsResponse> => {
+  return await apiClient({
+    method: 'get',
+    url: `activity/${request.activityId}`,
   });
 };

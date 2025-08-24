@@ -57,3 +57,32 @@ export type CreateActivityRequest = {
   country: string;
   stateProvince: string;
 };
+
+export interface GetActivityDetailsRequest {
+  activityId: string;
+}
+
+export interface GetActivityDetailsResponse {
+  data: {
+    id: string;
+    title: string;
+    description: string;
+    startDateTime: string;
+    endDateTime: string;
+    address: string;
+    stateProvince: string;
+    city: string;
+    postalCode: string;
+    country: string;
+    users: Participant[];
+    categories: string[];
+  };
+}
+
+interface Participant {
+  userId: string;
+  name: string;
+  username: string;
+  email: string;
+  userRoleInActivity: string;
+}
