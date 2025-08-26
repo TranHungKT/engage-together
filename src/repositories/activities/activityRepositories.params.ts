@@ -86,3 +86,8 @@ interface Participant {
   email: string;
   userRoleInActivity: string;
 }
+
+export interface JoinActivityRequest {
+  activityId: string;
+  role: string;
+}

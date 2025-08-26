@@ -3,16 +3,33 @@ import { Button, Col, Row, Typography } from 'antd';
 import { useParams } from 'react-router-dom';
 import DetailsSection from './DetailsSection/DetailsSection';
 import { UserContext } from '@/contexts/UserContextProvider';
-import { useGetActivityDetailsSuspense } from '@/queries/activity.query';
+import { useGetActivityDetailsSuspense, useJoinActivity } from '@/queries/activity.query';
 
 export default function ActivityDetailsPage() {
   const { activityId } = useParams();
   const {
     data: { title, description, users },
     data,
+    refetch,
   } = useGetActivityDetailsSuspense({ activityId: activityId || '' });
 
+  const joinActivity = useJoinActivity();
+
   const { userId } = useContext(UserContext);
+
+  const handleJoinActivity = () => {
+    joinActivity.mutate(
+      {
+        activityId: activityId || '',
+        role: 'VOLUNTEER',
+      },
+      {
+        onSuccess: () => {
+          refetch();
+        },
+      },
+    );
+  };
 
   const renderJoinActivityButton = () => {
     const userIds = users.map((user) => user.userId);
@@ -21,7 +38,11 @@ export default function ActivityDetailsPage() {
       return <></>;
     }
 
-    return <Button type="primary">Join Activity</Button>;
+    return (
+      <Button type="primary" onClick={handleJoinActivity}>
+        Join Activity
+      </Button>
+    );
   };
 
   return (
