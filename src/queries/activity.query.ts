@@ -3,18 +3,15 @@ import { QUERY_ACTIVITY_DETAILS_KEY, QUERY_SEARCH_ACTIVITY_KEY } from '@/constan
 import {
   createActivity,
   getActivityDetails,
+  joinActivity,
   searchActivity,
 } from '@/repositories/activities/activityRepositories';
 import {
   GetActivityDetailsRequest,
-  GetActivityDetailsResponse,
   SearchActivityRequest,
-  SearchActivityResponse,
 } from '@/repositories/activities/activityRepositories.params';
 
-export const useSuspenseSearchActivity = (
-  searchActivityRequest: SearchActivityRequest,
-): SearchActivityResponse =>
+export const useSuspenseSearchActivity = (searchActivityRequest: SearchActivityRequest) =>
   useSuspenseQuery({
     queryFn: () => searchActivity(searchActivityRequest).then((res) => res.data),
     queryKey: [QUERY_SEARCH_ACTIVITY_KEY],
@@ -25,9 +22,12 @@ export const useCreateActivityMutation = () =>
     mutationFn: createActivity,
   });
 
-export const useGetActivityDetailsSuspense = (
-  request: GetActivityDetailsRequest,
-): GetActivityDetailsResponse =>
+export const useJoinActivity = () =>
+  useMutation({
+    mutationFn: joinActivity,
+  });
+
+export const useGetActivityDetailsSuspense = (request: GetActivityDetailsRequest) =>
   useSuspenseQuery({
     queryFn: () => getActivityDetails(request).then((res) => res.data),
     queryKey: [QUERY_ACTIVITY_DETAILS_KEY, request.activityId],

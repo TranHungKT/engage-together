@@ -3,6 +3,7 @@ import {
   CreateActivityRequest,
   GetActivityDetailsRequest,
   GetActivityDetailsResponse,
+  JoinActivityRequest,
   SearchActivityRequest,
   SearchActivityResponse,
 } from './activityRepositories.params';
@@ -25,6 +26,16 @@ export const createActivity = async (createActivityRequest: CreateActivityReques
     url: 'activity/create',
     data: {
       ...createActivityRequest,
+    },
+  });
+};
+
+export const joinActivity = async (joinActivityRequest: JoinActivityRequest) => {
+  return await apiClient({
+    method: 'post',
+    url: 'activity/join-activity',
+    data: {
+      ...joinActivityRequest,
     },
   });
 };
