@@ -48,6 +48,13 @@ const routerMeta: RouterMetaType = {
     isShow: true,
     isAuth: true,
   },
+  UserProfilePage: {
+    feature: 'user/profile',
+    name: 'User Profile',
+    path: '/user/:userId/profile',
+    isShow: true,
+    isAuth: true,
+  },
   LoginPage: {
     feature: 'login',
     name: 'Login',

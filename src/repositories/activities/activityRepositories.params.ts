@@ -1,9 +1,12 @@
 import { PaginationRequest, PaginationResponse } from '@/models/query.models';
 
 export interface SearchActivityRequest {
-  organizationId: string;
+  organizationId?: string;
   title?: string;
-  pagination: PaginationRequest;
+  activityId?: string;
+  userId?: string;
+  pagination?: PaginationRequest;
+  statuses?: string[];
 }
 
 export type SearchActivityResponse = {
@@ -16,7 +19,13 @@ export type SearchActivityResponse = {
     maxAttendees: number;
     organizationId: string;
     organization: OrganizationResponse;
-    categories: CategoriesResponse;
+    categories: string[];
+    status: string;
+    address: string;
+    stateProvince: string;
+    city: string;
+    postalCode: string;
+    country: string;
   }>;
 };
 
@@ -32,13 +41,6 @@ export interface OrganizationResponse {
   stateProvince: string;
   zipPostalCode: string;
   country: string;
-}
-
-export interface CategoriesResponse {
-  id: {
-    categoryKey: string;
-    activityId: string;
-  };
 }
 
 export type CreateActivityRequest = {

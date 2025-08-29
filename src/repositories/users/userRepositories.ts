@@ -1,6 +1,8 @@
 import apiClient from '../apiClient';
 import {
   CurrentUserDetailsResponse,
+  GetUserProfileRequest,
+  GetUserProfileResponse,
   LoginUserRequest,
   LoginUserResponse,
   SearchUserRequest,
@@ -11,6 +13,15 @@ export const getCurrentUserDetails = async (): Promise<CurrentUserDetailsRespons
   return await apiClient({
     method: 'get',
     url: '/user',
+  });
+};
+
+export const getUserProfile = async (
+  params: GetUserProfileRequest,
+): Promise<GetUserProfileResponse> => {
+  return await apiClient({
+    method: 'get',
+    url: `/user/profile/${params.userId}`,
   });
 };
 
