@@ -26,3 +26,11 @@ export const CategoryOptions = [
   { label: 'Arts for Social Impact', value: 'ARTS_FOR_SOCIAL_IMPACT' },
   { label: 'Miscellaneous Volunteer Activities', value: 'MISCELLANEOUS_VOLUNTEER_ACTIVITIES' },
 ];
+
+export enum ACTIVITY_STATUS {
+  DRAFT = 'DRAFT',
+  UPCOMING = 'UPCOMING',
+  STARTED = 'STARTED',
+  COMPLETED = 'COMPLETED',
+  ABORTED = 'ABORTED',
+}

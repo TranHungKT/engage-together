@@ -6,6 +6,23 @@ export interface CurrentUserDetailsResponse {
   };
 }
 
+export interface GetUserProfileRequest {
+  userId: string;
+}
+
+export interface GetUserProfileResponse {
+  data: {
+    id: string;
+    username: string;
+    email: string;
+    avatar: string;
+    createdDt: string;
+    numberOfActivityRegistered: number;
+    numberOfActivityCompleted: number;
+    numberOfDidNotJoinActivity: number;
+  };
+}
+
 export interface LoginUserRequest {
   username: string;
   password: string;
