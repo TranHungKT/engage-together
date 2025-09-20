@@ -41,6 +41,13 @@ const routerMeta: RouterMetaType = {
     isShow: true,
     isAuth: true,
   },
+  ManageParticipantsPage: {
+    feature: 'activity/manage_participants',
+    name: 'Manage Participants',
+    path: '/activity/details/:activityId/manage_participants',
+    isShow: true,
+    isAuth: true,
+  },
   MainDashboardPage: {
     feature: 'dashboard/user',
     name: 'Dashboard',

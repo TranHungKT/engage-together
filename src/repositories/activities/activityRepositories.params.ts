@@ -87,6 +87,7 @@ interface Participant {
   username: string;
   email: string;
   userRoleInActivity: string;
+  status: string;
 }
 
 export interface JoinActivityRequest {

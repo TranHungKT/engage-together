@@ -1,0 +1,14 @@
+.manage_participant {
+  .ant-table-content {
+    border-radius: 25px;
+    border: 2px solid #e5e8eb;
+  }
+
+  .ant-table-cell[scope='col'] {
+    background-color: transparent;
+  }
+
+  .ant-table-row:last-child .ant-table-cell:nth-last-child(-n + 3) {
+    border: 0;
+  }
+}
