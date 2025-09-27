@@ -4,6 +4,7 @@ import {
   createActivity,
   getActivityDetails,
   joinActivity,
+  manageParticipants,
   searchActivity,
 } from '@/repositories/activities/activityRepositories';
 import {
@@ -25,6 +26,11 @@ export const useCreateActivityMutation = () =>
 export const useJoinActivity = () =>
   useMutation({
     mutationFn: joinActivity,
+  });
+
+export const useManageParticipants = () =>
+  useMutation({
+    mutationFn: manageParticipants,
   });
 
 export const useGetActivityDetailsSuspense = (request: GetActivityDetailsRequest) =>

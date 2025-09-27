@@ -4,6 +4,7 @@ import {
   GetActivityDetailsRequest,
   GetActivityDetailsResponse,
   JoinActivityRequest,
+  ManageParticipantsRequest,
   SearchActivityRequest,
   SearchActivityResponse,
 } from './activityRepositories.params';
@@ -36,6 +37,16 @@ export const joinActivity = async (joinActivityRequest: JoinActivityRequest) => 
     url: 'activity/join-activity',
     data: {
       ...joinActivityRequest,
+    },
+  });
+};
+
+export const manageParticipants = async (manageParticipantsRequest: ManageParticipantsRequest) => {
+  return await apiClient({
+    method: 'patch',
+    url: 'activity/manage-participants',
+    data: {
+      ...manageParticipantsRequest,
     },
   });
 };

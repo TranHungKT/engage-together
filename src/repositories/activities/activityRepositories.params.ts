@@ -94,3 +94,11 @@ export interface JoinActivityRequest {
   activityId: string;
   role: string;
 }
+
+export interface ManageParticipantsRequest {
+  activityId: string;
+  updatedParticipants: {
+    userId: string;
+    status: string;
+  }[];
+}
