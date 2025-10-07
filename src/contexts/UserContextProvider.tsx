@@ -1,14 +1,14 @@
 import React, { createContext } from 'react';
-import { useIsLoginContext } from '@/lib/hooks/useIsLoginContext';
+import { useUserDetailsContext } from '@/lib/hooks/useUserDetailsContext';
 
 interface IUserContextProviderProps {
   children: JSX.Element[] | JSX.Element;
 }
 
-export const UserContext = createContext({} as ReturnType<typeof useIsLoginContext>);
+export const UserContext = createContext({} as ReturnType<typeof useUserDetailsContext>);
 
 const UserContextProvider = ({ children }: IUserContextProviderProps) => {
-  return <UserContext.Provider value={useIsLoginContext()}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={useUserDetailsContext()}>{children}</UserContext.Provider>;
 };
 
 export default UserContextProvider;
