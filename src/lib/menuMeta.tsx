@@ -11,23 +11,35 @@ import {
 import { MenuProps } from 'antd';
 import routerMeta from './routerMeta';
 import { SIGNOUT_KEY } from '@/constants/menu.constant';
+import { CurrentUserDetailsResponse } from '@/repositories/users/userRepositories.params';
 type Menu = Required<MenuProps>['items'];
 
-export const getMenu = ({ isLogin, userId }: { isLogin: boolean; userId?: string }): Menu => {
+export const getMenu = ({
+  isLogin,
+  userInfo,
+}: {
+  isLogin: boolean;
+  userInfo: Partial<CurrentUserDetailsResponse['data']>;
+}): Menu => {
   if (!isLogin) {
     return [{ key: 'Login', label: 'Login', icon: <LoginOutlined /> }];
   }
+
+  const { id: userId, organizations } = userInfo;
+
+  const organizationList = (organizations || []).map((org) => ({
+    key: `/organization/dashboard/${org.organizationId}`,
+    label: org.organizationName,
+    icon: <GroupOutlined />,
+  }));
+
   return [
     {
       key: 'Organization',
       label: 'Organization',
       icon: <GroupOutlined />,
       children: [
-        {
-          key: '/organization/dashboard/f304eec7-a54c-457c-85bf-a293f2a7f99f',
-          label: 'Your Organization',
-          icon: <GroupOutlined />,
-        },
+        ...organizationList,
         {
           key: routerMeta['OrganizationRegistrationPage'].path,
           label: 'Registration',

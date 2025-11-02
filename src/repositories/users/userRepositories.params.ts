@@ -3,6 +3,10 @@ export interface CurrentUserDetailsResponse {
     id: string;
     username: string;
     email: string;
+    organizations: {
+      organizationId: string;
+      organizationName: string;
+    }[];
   };
 }
 

@@ -17,7 +17,7 @@ export default function ActivityDetailsPage() {
 
   const joinActivity = useJoinActivity();
   const navigate = useNavigate();
-  const { userId } = useContext(UserContext);
+  const { userInfo } = useContext(UserContext);
   const [error, setError] = useState('');
 
   const [showModal] = useErrorModal(
@@ -50,7 +50,7 @@ export default function ActivityDetailsPage() {
   };
 
   const renderManageActivityButton = () => {
-    const foundUser = users.find((currentUser) => currentUser.userId === userId);
+    const foundUser = users.find((currentUser) => currentUser.userId === userInfo?.id);
 
     if (foundUser?.userRoleInActivity === 'ADMIN') {
       return (

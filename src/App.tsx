@@ -14,9 +14,9 @@ import Router from './Router';
 const { Header, Content, Footer, Sider } = Layout;
 
 function App() {
-  const { isLogin, userId, signout } = useUserDetailsContext();
+  const { isLogin, userInfo, signout } = useUserDetailsContext();
 
-  const items = getMenu({ isLogin, userId });
+  const items = getMenu({ isLogin, userInfo });
   const navigate = useNavigate();
 
   return (
