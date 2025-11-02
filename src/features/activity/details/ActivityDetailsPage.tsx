@@ -83,7 +83,6 @@ export default function ActivityDetailsPage() {
         <Typography.Title>{title}</Typography.Title>
         <Typography.Text>{description}</Typography.Text>
         <DetailsSection {...data} />
-        <Typography.Title>TODO: PARTICIPANTS</Typography.Title>
         {renderManageActivityButton()}
       </Col>
     </Row>

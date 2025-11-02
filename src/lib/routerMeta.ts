@@ -62,6 +62,13 @@ const routerMeta: RouterMetaType = {
     isShow: true,
     isAuth: true,
   },
+  SearchActivityPage: {
+    feature: 'user/search_activity',
+    name: 'Search Activity',
+    path: '/user/search_activity',
+    isShow: true,
+    isAuth: true,
+  },
   LoginPage: {
     feature: 'login',
     name: 'Login',
