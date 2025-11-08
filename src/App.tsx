@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.css';
 
-import { ConfigProvider, Layout, Menu } from 'antd';
+import { Col, ConfigProvider, Layout, Menu, Row } from 'antd';
 
 import { useNavigate } from 'react-router-dom';
 import { ModalProvider } from './components/modal/ModalProvider';
@@ -45,10 +45,16 @@ function App() {
                 }}
               />
             </Sider>
-            <Layout>
+            <Layout style={{ backgroundColor: 'white' }}>
               <Header style={{ padding: 0 }} />
-              <Content style={{ margin: '0 16px' }}>
-                <Router />
+              <Content>
+                <Row>
+                  <Col xs={{ span: 1 }} sm={{ span: 1 }} md={{ span: 1 }} lg={{ span: 4 }} />
+                  <Col xs={{ span: 24 }} sm={{ span: 24 }} md={{ span: 22 }} lg={{ span: 16 }}>
+                    <Router />
+                  </Col>
+                  <Col xs={{ span: 1 }} sm={{ span: 1 }} md={{ span: 1 }} lg={{ span: 4 }} />
+                </Row>
               </Content>
               <Footer style={{ textAlign: 'center' }}>
                 Ant Design ©{new Date().getFullYear()} Created by Ant UED
