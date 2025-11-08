@@ -15,7 +15,7 @@ import {
 export const useSuspenseSearchActivity = (searchActivityRequest: SearchActivityRequest) =>
   useSuspenseQuery({
     queryFn: () => searchActivity(searchActivityRequest).then((res) => res.data),
-    queryKey: [QUERY_SEARCH_ACTIVITY_KEY],
+    queryKey: [QUERY_SEARCH_ACTIVITY_KEY, searchActivityRequest],
   });
 
 export const useCreateActivityMutation = () =>

@@ -1,40 +1,32 @@
-import React from 'react';
-import { Avatar, Button, List, Typography } from 'antd';
-import { useNavigate } from 'react-router-dom';
-import { useSuspenseSearchActivity } from '@/queries/activity.query';
+import React, { Suspense, useState } from 'react';
+import { Button, Form, FormProps, Input, Typography } from 'antd';
+import SearchResult from './SearchResult/SearchResult';
+import LoadingFallback from '@/components/LoadingFallback';
+
+export type FieldType = {
+  title?: string;
+};
 
 export default function SearchActivityPage() {
-  const { data } = useSuspenseSearchActivity({
-    pagination: {
-      pageNumber: 1,
-      pageSize: 10,
-    },
-  });
+  const [filterData, setFilterData] = useState<FieldType>({});
 
-  const navigate = useNavigate();
+  const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
+    setFilterData(values);
+  };
 
   return (
     <>
       <Typography.Title>Find Volunteer Opportunities</Typography.Title>
-      <List
-        pagination={{ align: 'end' }}
-        dataSource={data.content}
-        renderItem={(item, index) => (
-          <List.Item
-            actions={[
-              <Button key={item.id} onClick={() => navigate(`/activity/details/${item.id}`)}>
-                View Details
-              </Button>,
-            ]}
-          >
-            <List.Item.Meta
-              avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`} />}
-              title={item.title}
-              description={item.description}
-            />
-          </List.Item>
-        )}
-      ></List>
+      <Form onFinish={onFinish}>
+        <Form.Item name="title">
+          <Input placeholder="Search activities" />
+        </Form.Item>
+        <Button htmlType="submit">Search</Button>
+      </Form>
+
+      <Suspense fallback={<LoadingFallback />}>
+        <SearchResult filterData={filterData} />
+      </Suspense>
     </>
   );
 }
