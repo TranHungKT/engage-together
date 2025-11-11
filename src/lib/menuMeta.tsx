@@ -53,6 +53,11 @@ export const getMenu = ({
       icon: <UserOutlined />,
       children: [
         {
+          key: routerMeta['SearchActivityPage'].path,
+          label: 'Search Activity',
+          icon: <DashboardOutlined />,
+        },
+        {
           key: `/user/${userId}/profile`,
           label: 'User profile',
           icon: <ProfileOutlined />,

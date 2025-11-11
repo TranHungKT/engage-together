@@ -35,6 +35,14 @@ export enum ACTIVITY_STATUS {
   ABORTED = 'ABORTED',
 }
 
+export const ActivityStatusOption = [
+  { label: 'Draft', value: ACTIVITY_STATUS.DRAFT },
+  { label: 'Upcoming', value: ACTIVITY_STATUS.UPCOMING },
+  { label: 'Started', value: ACTIVITY_STATUS.STARTED },
+  { label: 'Completed', value: ACTIVITY_STATUS.COMPLETED },
+  { label: 'Aborted', value: ACTIVITY_STATUS.ABORTED },
+];
+
 export enum ACTIVITY_PARTICIPANT_STATUS {
   REGISTERED = 'REGISTERED',
   JOINED = 'JOINED',
