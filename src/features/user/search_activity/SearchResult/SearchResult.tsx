@@ -15,6 +15,7 @@ export default function SearchResult({ filterData }: SearchResultProps) {
       pageSize: 10,
     },
     title: filterData?.title,
+    statuses: filterData.statuses,
   });
   const navigate = useNavigate();
   return (
