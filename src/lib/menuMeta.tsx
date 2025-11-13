@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   DashboardOutlined,
   EditOutlined,
@@ -9,9 +8,12 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import { MenuProps } from 'antd';
+
 import routerMeta from './routerMeta';
+
 import { SIGNOUT_KEY } from '@/constants/menu.constant';
 import { CurrentUserDetailsResponse } from '@/repositories/users/userRepositories.params';
+
 type Menu = Required<MenuProps>['items'];
 
 export const getMenu = ({

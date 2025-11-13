@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+
 import { Alert, Button, Checkbox, Form, FormProps, Input, Typography } from 'antd';
 
 import './styles.scss';

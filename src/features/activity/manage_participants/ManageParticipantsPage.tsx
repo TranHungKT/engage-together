@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+
 import { Button, Col, Row, Spin, Typography } from 'antd';
 import { useParams } from 'react-router-dom';
+
 import Participants from './Participants/Participants';
 
-import './styles.scss';
 import { useErrorModal } from '@/components/modal/useErrorModal';
 import { QueryError } from '@/models/query.models';
 import { useGetActivityDetailsSuspense, useManageParticipants } from '@/queries/activity.query';
+import './styles.scss';
 
 export interface DataType {
   key: string;

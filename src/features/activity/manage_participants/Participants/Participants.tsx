@@ -1,7 +1,8 @@
-import React from 'react';
-import { TableProps, Typography, Space, Button, Table } from 'antd';
+import { Button, Space, Table, TableProps, Typography } from 'antd';
 import { startCase, toLower } from 'lodash';
+
 import { DataType } from '../ManageParticipantsPage';
+
 import { ACTIVITY_PARTICIPANT_STATUS } from '@/constants/activity.constant';
 
 export interface ParticipantsProps {

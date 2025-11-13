@@ -1,6 +1,6 @@
-import React from 'react';
 import { Button, List } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
+
 import { useSuspenseSearchActivity } from '@/queries/activity.query';
 
 export default function UpcomingActivities() {

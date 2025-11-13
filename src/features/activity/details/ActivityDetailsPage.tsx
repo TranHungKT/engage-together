@@ -1,11 +1,15 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
+
 import { Button, Col, Row, Typography } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
+
 import DetailsSection from './DetailsSection/DetailsSection';
+
 import { useErrorModal } from '@/components/modal/useErrorModal';
 import { UserContext } from '@/contexts/UserContextProvider';
 import { QueryError } from '@/models/query.models';
 import { useGetActivityDetailsSuspense, useJoinActivity } from '@/queries/activity.query';
+
 
 export default function ActivityDetailsPage() {
   const { activityId } = useParams();

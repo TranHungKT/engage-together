@@ -1,4 +1,5 @@
-import React, { createContext } from 'react';
+import { createContext } from 'react';
+
 import { useUserDetailsContext } from '@/lib/hooks/useUserDetailsContext';
 
 interface IUserContextProviderProps {

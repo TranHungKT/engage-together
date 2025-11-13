@@ -1,7 +1,10 @@
 /* eslint-disable react/display-name */
 import React, { memo, useEffect, useState } from 'react';
+
 import * as ReactDOM from 'react-dom';
+
 import { ModalType } from './ModalContext';
+
 interface ModalRootProps {
   modals: Record<string, ModalType>;
   rootComponent?: React.ComponentType<any>;

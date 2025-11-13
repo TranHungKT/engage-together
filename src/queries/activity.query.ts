@@ -1,4 +1,5 @@
 import { useMutation, useSuspenseQuery } from '@tanstack/react-query';
+
 import { QUERY_ACTIVITY_DETAILS_KEY, QUERY_SEARCH_ACTIVITY_KEY } from '@/constants/query.constant';
 import {
   createActivity,

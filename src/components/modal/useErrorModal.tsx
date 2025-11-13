@@ -1,5 +1,7 @@
-import React, { DependencyList } from 'react';
+import { DependencyList } from 'react';
+
 import { Modal } from 'antd';
+
 import { useModal } from './useModal';
 
 interface ErrorModalProps {

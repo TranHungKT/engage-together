@@ -1,4 +1,3 @@
-import apiClient from '../apiClient';
 import {
   CreateActivityRequest,
   GetActivityDetailsRequest,
@@ -8,6 +7,8 @@ import {
   SearchActivityRequest,
   SearchActivityResponse,
 } from './activityRepositories.params';
+
+import apiClient from '../apiClient';
 
 export const searchActivity = async (
   searchActivityRequest: SearchActivityRequest,

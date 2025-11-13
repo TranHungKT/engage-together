@@ -1,8 +1,11 @@
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
+
 import { Avatar, Button, Col, Row, Tabs, TabsProps, Typography } from 'antd';
 import dayjs from 'dayjs';
 import { useParams } from 'react-router-dom';
+
 import Overview from './Overview/Overview';
+
 import LoadingFallback from '@/components/LoadingFallback';
 import CardContent from '@/features/dashboard/user/CardContent/CardContent';
 import { useSuspenseUserProfile } from '@/queries/users.query';

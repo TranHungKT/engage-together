@@ -1,7 +1,6 @@
-import React from 'react';
-
 import { Typography } from 'antd';
 import './FormLabel.style.scss';
+
 interface FormLabelProps {
   label: string;
 }

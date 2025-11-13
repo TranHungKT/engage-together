@@ -1,30 +1,29 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
-
-import './styles.scss';
-
 import { useNavigate } from 'react-router-dom';
 
 import {
   cityValidation,
   confirmPasswordValidation,
-  phoneNumberValidation,
   countryValidation,
   missionStatementValidation,
   organizationAddressValidation,
   organizationEmailValidation,
   organizationNameValidation,
   passwordValidation,
+  phoneNumberValidation,
   stateProvinceValidation,
   zipCodeValidation,
 } from './helper/validation';
 import { IOrganizationRegistration } from './interfaces';
 import OrganizationType from './OrganizationType/OrganizationType';
+
 import FormLabel from '@/components/FormLabel/FormLabel';
 import { useErrorModal } from '@/components/modal/useErrorModal';
 import { QueryError } from '@/models/query.models';
 import { useCreateOrganizationMutation } from '@/queries/organizations.query';
+
 const { Item } = Form;
 const { TextArea } = Input;
 

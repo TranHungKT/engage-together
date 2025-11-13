@@ -1,9 +1,8 @@
-import React from 'react';
-
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Avatar, Button, Col, List, Row, Typography } from 'antd';
 
 import CardContent from './CardContent/CardContent';
+
 import { useGetOrganizationSummary } from '@/queries/organizations.query';
 
 const { Title } = Typography;

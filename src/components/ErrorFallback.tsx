@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { useNavigate } from 'react-router-dom';
+
 interface IErrorFallbackProps {
   resetErrorBoundary: (...args: unknown[]) => void;
 }

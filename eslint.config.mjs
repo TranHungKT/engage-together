@@ -13,6 +13,15 @@ export default [
   pluginReact.configs.flat.recommended,
   {
     plugins: {
+      pluginReact,
+    },
+    rules: {
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
+    },
+  },
+  {
+    plugins: {
       tseslint,
     },
     rules: {
@@ -38,10 +47,14 @@ export default [
       import: sortImport,
     },
     rules: {
+      'import/first': 'error',
+      'import/newline-after-import': ['error', { count: 1 }],
+      'import/no-duplicates': 'error',
       'import/order': [
         'error',
         {
-          groups: ['builtin', 'external', 'internal'],
+          groups: [['builtin', 'external'], 'internal', 'sibling', 'parent', 'index'],
+          'newlines-between': 'always',
           pathGroups: [
             {
               pattern: 'react',

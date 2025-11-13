@@ -1,6 +1,7 @@
-import React from 'react';
 import { List, Typography } from 'antd';
+
 import Section from './Section';
+
 import { CategoryOptions } from '@/constants/activity.constant';
 import { GetActivityDetailsResponse } from '@/repositories/activities/activityRepositories.params';
 

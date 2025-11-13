@@ -1,24 +1,15 @@
-import React from 'react';
-
 import './App.css';
 
-import { Col, ConfigProvider, Layout, Menu, Row } from 'antd';
+import { Col, ConfigProvider, Layout, Row } from 'antd';
 
-import { useNavigate } from 'react-router-dom';
+import Menu from './components/Menu/Menu';
 import { ModalProvider } from './components/modal/ModalProvider';
-import { SIGNOUT_KEY } from './constants/menu.constant';
 import UserContextProvider from './contexts/UserContextProvider';
-import { useUserDetailsContext } from './lib/hooks/useUserDetailsContext';
-import { getMenu } from './lib/menuMeta';
 import Router from './Router';
+
 const { Header, Content, Footer, Sider } = Layout;
 
 function App() {
-  const { isLogin, userInfo, signout } = useUserDetailsContext();
-
-  const items = getMenu({ isLogin, userInfo });
-  const navigate = useNavigate();
-
   return (
     <ConfigProvider
       theme={{
@@ -32,18 +23,7 @@ function App() {
           <Layout style={{ minHeight: '100vh' }}>
             <Sider collapsible>
               <div className="demo-logo-vertical" />
-              <Menu
-                theme="dark"
-                defaultSelectedKeys={['1']}
-                mode="inline"
-                items={items}
-                onSelect={(item) => {
-                  if (item.key === SIGNOUT_KEY) {
-                    return signout();
-                  }
-                  return navigate(item.key, { replace: true });
-                }}
-              />
+              <Menu />
             </Sider>
             <Layout style={{ backgroundColor: 'white' }}>
               <Header style={{ padding: 0 }} />

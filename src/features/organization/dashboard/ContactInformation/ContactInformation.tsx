@@ -1,5 +1,5 @@
-import React from 'react';
 import { Col, Row, Splitter, Typography } from 'antd';
+
 import ContactSection from './ContactSection/ContactSection';
 
 interface ContactInformationProps {
