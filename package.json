@@ -1,6 +1,6 @@
 {
   "name": "engage-together",
-  "version": "0.1.0",
+  "version": "1.22.22",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "5.x",
@@ -35,7 +35,6 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^15.13.0",
     "sass": "^1.84.0",
     "tsconfig-paths-webpack-plugin": "^4.2.0",
