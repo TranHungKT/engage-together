@@ -1,6 +1,6 @@
 {
   "name": "engage-together",
-  "version": "1.22.22",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "5.x",
