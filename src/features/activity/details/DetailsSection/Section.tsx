@@ -1,7 +1,8 @@
-import React from 'react';
 import { Flex, Typography } from 'antd';
 import dayjs from 'dayjs';
+
 import { DetailSection } from './DetailsSection';
+
 export default function Section(props: DetailSection) {
   const renderItemValue = (item: DetailSection) => {
     if (item.isText) {

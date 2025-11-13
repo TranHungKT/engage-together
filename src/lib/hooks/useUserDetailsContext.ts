@@ -1,4 +1,5 @@
 import token from '../token';
+
 import { ACCESS_TOKEN_KEY } from '@/constants/token.constant';
 import { useCurrentUserDetails } from '@/queries/users.query';
 import { CurrentUserDetailsResponse } from '@/repositories/users/userRepositories.params';

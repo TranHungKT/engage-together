@@ -1,4 +1,3 @@
-import apiClient from '../apiClient';
 import {
   CurrentUserDetailsResponse,
   GetUserProfileRequest,
@@ -8,6 +7,8 @@ import {
   SearchUserRequest,
   SearchUserResponse,
 } from './userRepositories.params';
+
+import apiClient from '../apiClient';
 
 export const getCurrentUserDetails = async (): Promise<CurrentUserDetailsResponse> => {
   return await apiClient({

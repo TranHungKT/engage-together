@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Cascader } from 'antd';
 
 import { RequirementKeys, RequirementsSkills } from './requirements';

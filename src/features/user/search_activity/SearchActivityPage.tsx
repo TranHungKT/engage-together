@@ -1,6 +1,9 @@
-import React, { Suspense, useState } from 'react';
-import { Button, Form, FormProps, Input, Select, Typography, DatePicker, Row, Col } from 'antd';
+import { Suspense, useState } from 'react';
+
+import { Button, Col, DatePicker, Form, FormProps, Input, Row, Select, Typography } from 'antd';
+
 import SearchResult from './SearchResult/SearchResult';
+
 import LoadingFallback from '@/components/LoadingFallback';
 import { ActivityStatusOption, CategoryOptions } from '@/constants/activity.constant';
 

@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useSuspenseQuery } from '@tanstack/react-query';
+
 import {
   QUERY_CURRENT_USER_DETAILS_KEY,
   QUERY_SEARCH_USER_KEY,

@@ -1,6 +1,6 @@
-import React from 'react';
 import { Col, Image, List, Row, Typography } from 'antd';
 import dayjs from 'dayjs';
+
 import { ACTIVITY_STATUS } from '@/constants/activity.constant';
 import { useSuspenseSearchActivity } from '@/queries/activity.query';
 

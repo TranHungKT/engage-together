@@ -1,10 +1,11 @@
-import React from 'react';
-import { Row, Col, TabsProps, Tabs } from 'antd';
+import { Col, Row, Tabs, TabsProps } from 'antd';
 import { useParams } from 'react-router-dom';
+
 import ContactInformation from './ContactInformation/ContactInformation';
 import Header from './Header/Header';
 import PastActivities from './PastActivities/PastActivities';
 import UpcomingActivities from './UpcomingActivities/UpcomingActivities';
+
 import CardContent from '@/features/dashboard/user/CardContent/CardContent';
 import { useGetOrganizationDetails } from '@/queries/organizations.query';
 

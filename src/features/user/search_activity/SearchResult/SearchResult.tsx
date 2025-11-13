@@ -1,7 +1,8 @@
-import React from 'react';
-import { List, Button, Avatar } from 'antd';
+import { Avatar, Button, List } from 'antd';
 import { useNavigate } from 'react-router-dom';
+
 import { FieldType } from '../SearchActivityPage';
+
 import { useSuspenseSearchActivity } from '@/queries/activity.query';
 
 interface SearchResultProps {

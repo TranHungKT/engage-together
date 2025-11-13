@@ -1,6 +1,6 @@
-import React from 'react';
 import { AntDesignOutlined } from '@ant-design/icons';
 import { Avatar, Button, Col, Row, Typography } from 'antd';
+
 import { OrganizationType, OrganizationTypeKeys } from '@/constants/organization.constant';
 import { GetOrganizationDetailsResponse } from '@/repositories/organizations/organizationRepositories.params';
 
