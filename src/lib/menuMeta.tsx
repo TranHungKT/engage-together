@@ -24,13 +24,13 @@ export const getMenu = ({
   userInfo: Partial<CurrentUserDetailsResponse['data']>;
 }): Menu => {
   if (!isLogin) {
-    return [{ key: 'Login', label: 'Login', icon: <LoginOutlined /> }];
+    return [{ key: 'authentication/login', label: 'Login', icon: <LoginOutlined /> }];
   }
 
   const { id: userId, organizations } = userInfo;
 
   const organizationList = (organizations || []).map((org): Menu[0] => ({
-    key: `/organization/dashboard/${org.organizationId}`,
+    key: `/${org.organizationId}/dashboard`,
     label: org.organizationName,
     icon: <GroupOutlined />,
     type: 'item',
@@ -38,14 +38,14 @@ export const getMenu = ({
 
   return [
     {
-      key: 'Organization',
+      key: 'organization',
       label: 'Organization',
       icon: <GroupOutlined />,
       type: 'submenu',
       children: [
         ...organizationList,
         {
-          key: routerMeta['OrganizationRegistrationPage'].path,
+          key: routerMeta['organization']['OrganizationRegistrationPage'].path,
           label: 'Registration',
           icon: <EditOutlined />,
           type: 'item',
@@ -53,25 +53,25 @@ export const getMenu = ({
       ],
     },
     {
-      key: 'User',
+      key: 'user',
       label: 'User',
       icon: <UserOutlined />,
       type: 'submenu',
       children: [
         {
-          key: routerMeta['SearchActivityPage'].path,
+          key: routerMeta['user']['SearchActivityPage'].path,
           label: 'Search Activity',
           icon: <DashboardOutlined />,
           type: 'item',
         },
         {
-          key: `/user/${userId}/profile`,
+          key: `/${userId}/profile`,
           label: 'User profile',
           icon: <ProfileOutlined />,
           type: 'item',
         },
         {
-          key: routerMeta['MainDashboardPage'].path,
+          key: routerMeta['user']['MainDashboardPage'].path,
           label: 'User dashboard',
           icon: <DashboardOutlined />,
           type: 'item',

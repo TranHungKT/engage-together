@@ -22,11 +22,13 @@ export default function Menu() {
       items={items}
       selectedKeys={activeRoute as string[]}
       onSelect={(item) => {
+        console.log('<< itme', item);
         if (item.key === SIGNOUT_KEY) {
           return signout();
         }
-        return navigate(item.key);
+        return navigate(item.keyPath.reverse().join(''));
       }}
+      onClick={(item) => console.log('<< inf', item)}
     />
   );
 }
