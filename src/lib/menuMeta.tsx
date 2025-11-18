@@ -24,13 +24,13 @@ export const getMenu = ({
   userInfo: Partial<CurrentUserDetailsResponse['data']>;
 }): Menu => {
   if (!isLogin) {
-    return [{ key: 'authentication/login', label: 'Login', icon: <LoginOutlined /> }];
+    return [{ key: 'authentication/login', label: 'Login', icon: <LoginOutlined />, type: 'item' }];
   }
 
   const { id: userId, organizations } = userInfo;
 
   const organizationList = (organizations || []).map((org): Menu[0] => ({
-    key: `/${org.organizationId}/dashboard`,
+    key: `${org.organizationId}/dashboard`,
     label: org.organizationName,
     icon: <GroupOutlined />,
     type: 'item',
@@ -65,7 +65,7 @@ export const getMenu = ({
           type: 'item',
         },
         {
-          key: `/${userId}/profile`,
+          key: `${userId}/profile`,
           label: 'User profile',
           icon: <ProfileOutlined />,
           type: 'item',

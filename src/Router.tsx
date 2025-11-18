@@ -29,34 +29,32 @@ const Router = () => {
   const { reset } = useQueryErrorResetBoundary();
 
   return (
-    <>
-      {assignPaths.map((path) => {
-        return (
-          <Routes key={path + 'asdasd'}>
-            {getAssignRouter(path).map(({ Component, props }) => (
-              <Route
-                key={props.path + 'asdasdasdasdasd'}
-                path={path + props.path}
-                element={
-                  <ProtectedRoute path={path + props.path}>
-                    <Suspense fallback={<LoadingFallback />}>
-                      <ErrorBoundary
-                        onReset={reset}
-                        fallbackRender={({ resetErrorBoundary }) => (
-                          <ErrorFallback resetErrorBoundary={resetErrorBoundary} />
-                        )}
-                      >
-                        <Component />
-                      </ErrorBoundary>
-                    </Suspense>
-                  </ProtectedRoute>
-                }
-              />
-            ))}
-          </Routes>
-        );
-      })}
-    </>
+    <Routes>
+      {assignPaths.map((path) => (
+        <Route path={path} key={path}>
+          {getAssignRouter(path).map(({ Component, props }) => (
+            <Route
+              key={props.path}
+              path={props.path}
+              element={
+                <ProtectedRoute path={`/${path}/${props.path}`}>
+                  <Suspense fallback={<LoadingFallback />}>
+                    <ErrorBoundary
+                      onReset={reset}
+                      fallbackRender={({ resetErrorBoundary }) => (
+                        <ErrorFallback resetErrorBoundary={resetErrorBoundary} />
+                      )}
+                    >
+                      <Component />
+                    </ErrorBoundary>
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+          ))}
+        </Route>
+      ))}
+    </Routes>
   );
 };
 

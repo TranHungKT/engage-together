@@ -18,11 +18,11 @@ export default function ProtectedRoute({ children, path }: ProtectedRouteProps) 
     return <Skeleton />;
   }
 
-  if (!isLogin && path !== routerMeta['authentication'].LoginPage.path) {
-    return <Navigate to={routerMeta['authentication'].LoginPage.path} replace={true} />;
+  if (!isLogin && path !== '/authentication/login') {
+    return <Navigate to={'/authentication/login'} replace={true} />;
   }
 
-  if (isLogin && path === routerMeta['authentication'].LoginPage.path) {
+  if (isLogin && path === '/authentication/login') {
     return <Navigate to={routerMeta['user'].MainDashboardPage.path} replace={true} />;
   }
 

@@ -20,7 +20,7 @@ export const getMenuKeys = (
   currentPath: string,
 ): { fullPath: string; key: Key }[] => {
   if (menuItem?.type === 'item') {
-    return [{ fullPath: currentPath + menuItem.key, key: menuItem.key }];
+    return [{ fullPath: currentPath + '/' + menuItem.key, key: menuItem.key }];
   } else if (menuItem?.type === 'submenu') {
     currentPath += menuItem?.key;
     return flatMap(menuItem.children.map((item) => getMenuKeys(item, currentPath)));
