@@ -26,7 +26,7 @@ export default function SearchResult({ filterData }: SearchResultProps) {
       renderItem={(item, index) => (
         <List.Item
           actions={[
-            <Button key={item.id} onClick={() => navigate(`/activity/details/${item.id}`)}>
+            <Button key={item.id} onClick={() => navigate(`/user/search_activity/${item.id}`)}>
               View Details
             </Button>,
           ]}

@@ -13,6 +13,7 @@ function App() {
   return (
     <ConfigProvider
       theme={{
+        // algorithm: theme.darkAlgorithm,
         token: {
           fontFamily: 'public-sans-regular',
         },
@@ -25,7 +26,7 @@ function App() {
               <div className="demo-logo-vertical" />
               <Menu />
             </Sider>
-            <Layout style={{ backgroundColor: 'white' }}>
+            <Layout>
               <Header style={{ padding: 0 }} />
               <Content>
                 <Row>

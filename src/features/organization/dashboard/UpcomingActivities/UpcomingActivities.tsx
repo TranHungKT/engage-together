@@ -18,7 +18,7 @@ export default function UpcomingActivities() {
   const navigate = useNavigate();
 
   const handleNavigateToActivityDetails = (activityId: string) => {
-    navigate(`/activity/details/${activityId}`);
+    navigate(`/organization/${id}/dashboard/activity/${activityId}`);
   };
 
   return (

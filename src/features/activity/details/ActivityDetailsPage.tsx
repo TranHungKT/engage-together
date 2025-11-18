@@ -10,7 +10,6 @@ import { UserContext } from '@/contexts/UserContextProvider';
 import { QueryError } from '@/models/query.models';
 import { useGetActivityDetailsSuspense, useJoinActivity } from '@/queries/activity.query';
 
-
 export default function ActivityDetailsPage() {
   const { activityId } = useParams();
   const {
@@ -50,7 +49,7 @@ export default function ActivityDetailsPage() {
   };
 
   const handleManageParticipants = () => {
-    navigate(`/activity/details/${activityId}/manage_participants`);
+    navigate('manage_participants');
   };
 
   const renderManageActivityButton = () => {
