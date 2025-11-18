@@ -32,13 +32,13 @@ const Router = () => {
     <>
       {assignPaths.map((path) => {
         return (
-          <Routes key={path}>
+          <Routes key={path + 'asdasd'}>
             {getAssignRouter(path).map(({ Component, props }) => (
               <Route
-                key={props.path}
+                key={props.path + 'asdasdasdasdasd'}
                 path={path + props.path}
                 element={
-                  <ProtectedRoute path={props.path}>
+                  <ProtectedRoute path={path + props.path}>
                     <Suspense fallback={<LoadingFallback />}>
                       <ErrorBoundary
                         onReset={reset}

@@ -17,7 +17,7 @@ export type RouterMeta = {
 };
 
 const routerMeta: RouterMeta = {
-  ['organization']: {
+  organization: {
     OrganizationRegistrationPage: {
       feature: 'organization/registration',
       name: 'Organization Registration',
@@ -54,7 +54,7 @@ const routerMeta: RouterMeta = {
       isAuth: true,
     },
   },
-  ['user']: {
+  user: {
     CreateActivityPage: {
       feature: 'activity/create',
       name: 'Create Activity',
@@ -98,7 +98,7 @@ const routerMeta: RouterMeta = {
       isAuth: true,
     },
   },
-  ['authentication']: {
+  authentication: {
     LoginPage: {
       feature: 'login',
       name: 'Login',
